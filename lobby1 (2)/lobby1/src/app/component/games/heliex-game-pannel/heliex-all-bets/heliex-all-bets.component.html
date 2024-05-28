@@ -1,0 +1,158 @@
+<!-- <div className="gamebets-details"> -->
+    <div class="details-details" *ngIf="hideandShowProfile ==true">
+        <div class="top-tabs">
+          <button class="top-tab" [class.active]="activeTab === 'ALL_BETS'" (click)="setActiveTab('ALL_BETS')">All BETS</button>
+          <button class="top-tab" [class.active]="activeTab === 'USER_BETS'" (click)="setActiveTab('USER_BETS')">USER BETS</button>
+          <button class="top-tab" [class.active]="isShowMoreActive" (click)="toggleAdditionalButtons()">Show More</button>
+        </div>
+      
+        <div *ngIf="showAdditionalButtons">
+          <div class="top-tabs">
+            <button class="top-tab" [class.active]="activeTab === 'MONTHLY_BETS'" (click)="setActiveTab('MONTHLY_BETS')">Monthly</button>
+            <button class="top-tab" [class.active]="activeTab === 'WEEKLY_BETS'" (click)="setActiveTab('WEEKLY_BETS')">Weekly</button>
+            <button class="top-tab" [class.active]="activeTab === 'DAILY_BETS'" (click)="setActiveTab('DAILY_BETS')">Daily</button>
+          </div>
+        </div>
+        <!-- Include ng-container sections as needed for each tab's content -->
+          <ng-container *ngIf="history === 'USER_BETS'">
+            <!-- <app-heliex-top-bets-all [betHistories]="betHistories"></app-heliex-top-bets-all> -->
+                <table class="tables">
+                    <thead>
+                      <tr>
+                        <th class="th" scope="col">User</th>
+                        <th class="th" scope="col">Bet USD X</th>
+                        <th class="th" scope="col">Cash Out usd</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of myBets| paginate: { itemsPerPage: pageSize, currentPage: currentPage };let i = index">
+                        <td>{{data.userName}}</td>
+                        <td>{{data.amount}}</td>
+                        <td>{{data.winAmount}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <pagination-controls class="pagination" [maxSize]="4" (pageChange)="currentPage = $event" ></pagination-controls>
+          </ng-container>
+          <ng-container *ngIf="history === 'ALL_BETS'">
+            <!-- <app-heliex-top-bets-all [betHistories]="betHistories"></app-heliex-top-bets-all> -->
+                <table class="tables">
+                    <thead>
+                      <tr>
+                        <th  class="th" scope="col">User Name</th>
+                        <th class="th" scope="col">Bet Amount</th>
+                        <th class="th" scope="col">Bet Out Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of AllBets">
+                        <td>{{data.userName}}</td>
+                        <td>{{data.amount}}</td>
+                        <td>{{data.winAmount}}</td>
+                      </tr>
+                      <tr *ngIf="AllBets.length == 0">
+                        <td colspan="3"> No Data Available</td>
+                      </tr>
+                    </tbody>
+                  <pagination-controls class="pagination" *ngIf="AllBets.length !=0" [maxSize]="5" (pageChange)="currentPage = $event" ></pagination-controls>
+                  </table>
+          </ng-container>
+          <ng-container *ngIf="history === 'MONTHLY_BETS'">
+            <!-- <app-heliex-top-bets-all [betHistories]="betHistories"></app-heliex-top-bets-all> -->
+                <table class="tables">
+                    <thead>
+                      <tr>
+                        <th  class="th" scope="col">User Name</th>
+                        <th class="th" scope="col">Bet Amount</th>
+                        <th class="th" scope="col">Bet Out Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of dummyData">
+                        <td>{{data.username}}</td>
+                        <td>{{data.betAmount}}</td>
+                        <td>{{data.betOutAmount}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+          </ng-container>
+          <ng-container *ngIf="history === 'WEEKLY_BETS'">
+            <!-- <app-heliex-top-bets-all [betHistories]="betHistories"></app-heliex-top-bets-all> -->
+                <table class="tables">
+                    <thead>
+                      <tr>
+                        <th  class="th" scope="col">User Name</th>
+                        <th class="th" scope="col">Bet Amount</th>
+                        <th class="th" scope="col">Bet Out Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of dummyData">
+                        <td>{{data.username}}</td>
+                        <td>{{data.betAmount}}</td>
+                        <td>{{data.betOutAmount}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+          </ng-container>
+          <ng-container *ngIf="history === 'DAILY_BETS'">
+            <!-- <app-heliex-top-bets-all [betHistories]="betHistories"></app-heliex-top-bets-all> -->
+                <table class="tables">
+                    <thead>
+                      <tr>
+                        <th  class="th" scope="col">User Name</th>
+                        <th class="th" scope="col">Bet Amount</th>
+                        <th class="th" scope="col">Bet Out Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of dummyData">
+                        <td>{{data.username}}</td>
+                        <td>{{data.betAmount}}</td>
+                        <td>{{data.betOutAmount}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+          </ng-container>
+          
+         
+      </div>
+
+
+
+      
+  <div class="menus-card">
+    <div class="menus" *ngIf ="hideandShowProfile == false">
+      <div class="card">
+        <div class="card-header">
+          <img src="assets/Photos/HelixPhotos/Ellipse5.png">
+          <h5 class="card-title">Faizan998</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="form-check form-switch" >
+              <label class="form-check-label" for="soundToggle">Sound</label>
+              <input class="form-check-input" type="checkbox" id="soundToggle" checked>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="musicToggle">Music</label>
+              <input class="form-check-input" type="checkbox" id="musicToggle" checked>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="animationToggle">Animation</label>
+              <input class="form-check-input" type="checkbox" id="animationToggle" checked>
+            </div>
+          </li>
+          <li class="list-group-item"> Back to Game</li>
+          <li class="list-group-item"> Back to Lobby</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- </div> -->
+  

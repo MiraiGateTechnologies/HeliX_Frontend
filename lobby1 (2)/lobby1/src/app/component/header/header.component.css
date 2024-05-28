@@ -1,0 +1,72 @@
+.navbar{
+    background-color: black !important;
+    display: flex;
+    align-items: center;
+}
+.navbar{
+    display: flex;
+}
+:root{
+--logo-color: #dd1f5e;
+--white: #fff;
+--marker-font: 'Permanent Marker', cursive;
+}
+.games-pannel-menus .logo {
+    font-size: 1.7rem;
+    color: var(--white);
+    text-transform: capitalize;
+    font-family: var(--marker-font);
+    margin-right: 20px;
+}
+
+.games-pannel-menus .logo span {
+    color: var(--logo-color);
+}
+
+#offcanvasNavbar {
+    width: 250px; /* Set the width of the offcanvas navbar */
+}
+.navbar-toggler {
+    order: 1; /* Toggler first */
+    color: white;
+    border: none;
+} 
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-brand {
+    order: 2; /* Logo next */
+    margin-left: 10px; /* Space between toggler and logo */
+    
+}
+.header-h3{
+    text-align: center;
+}
+.card-text{
+    display: flex;
+}
+.header-text{
+    font-family: 'poppins',sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    margin-top: 8px;
+    margin: 5px;
+}
+.header-text-bottom{
+    font-family: 'poppins',sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    margin: 2px;
+    padding-top: 5px;
+}
+@media (min-width: 768px) {
+    #carouselExampleIndicators img {
+      height: 400px; /* Set a fixed height for larger screens */
+      object-fit: cover; /* Adjust how the image fits in the container */
+    }
+    #offcanvasNavbar {
+      display: none !important;  /* Use !important to ensure override */
+    }
+}

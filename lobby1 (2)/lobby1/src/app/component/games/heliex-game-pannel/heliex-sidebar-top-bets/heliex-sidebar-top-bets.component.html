@@ -1,0 +1,32 @@
+
+
+<div class="top-tabs">
+    <button class="top-tab" (click)="setActiveTab('MONTHLY_BETS')">monthly</button>
+    <button class="top-tab" (click)="setActiveTab('WEEKLY_BETS')">weekly</button>
+    <button class="top-tab" (click)="setActiveTab('DAILY_BETS')">daily</button>
+  </div>
+  <div class="details-details">
+    <div class="table">
+      <div class="table-header">
+        <div class="th">username</div>
+        <div class="th">bet amount</div>
+        <div class="th">bet amount</div>
+      </div>
+      <div class="tbody">
+        <ng-container *ngIf="history === 'ALL_BETS'">
+          <app-heliex-top-bets-all [betHistories]="betHistories"></app-heliex-top-bets-all>
+        </ng-container>
+        <ng-container *ngIf="history === 'MONTHLY_BETS'">
+          <app-heliex-top-bets-monthly [allBetHistories]="betHistories"></app-heliex-top-bets-monthly>
+        </ng-container>
+        <ng-container *ngIf="history === 'WEEKLY_BETS'">
+          <app-heliex-top-bets-weekly [allBetHistories]="betHistories"></app-heliex-top-bets-weekly>
+        </ng-container>
+        <ng-container *ngIf="history === 'DAILY_BETS'">
+          <app-heliex-top-bets-daily [allBetHistories]="betHistories"></app-heliex-top-bets-daily>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
+

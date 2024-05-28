@@ -1,0 +1,511 @@
+
+.unity-game-box .canvas {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.game-history-header{
+  display: flex;
+  overflow: hidden;
+}
+.histories{
+  display: flex;
+  gap:10px;
+  white-space: nowrap;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  
+  scrollbar-width: none;  
+}
+.histories::-webkit-scrollbar {
+  display: none;
+}
+.reduced-gap .col-6 {
+  padding-right: 2px; /* Reduce right padding */
+  padding-left: 2px;  /* Reduce left padding */
+}
+
+.reduced-gap {
+  margin-bottom: 0; /* Optional: reduces the vertical space between rows */
+}
+.custom-toggle .custom-control-input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.custom-toggle{
+margin-top: 5px;
+}
+.custom-toggle .custom-control-label {
+position: relative;
+display: inline-block;
+width: 34px; /* Smaller width */
+height: 18px; /* Smaller height */
+background-color: #ccc;
+border-radius: 50px;
+transition: .3s background-color ease-in-out;
+cursor: pointer;
+;
+}
+
+.custom-toggle .custom-control-label::after {
+content: "";
+position: absolute;
+top: 2px; /* Adjusted for new height */
+left: 2px; /* Adjusted for new width */
+width: 14px; /* Smaller circle */
+height: 14px; /* Smaller circle */
+background-color: #fff;
+border-radius: 50%;
+transition: .3s transform ease-in-out;
+}
+
+.custom-toggle .custom-control-input:checked ~ .custom-control-label {
+background-color: #28a745; /* Green background when checked */
+}
+
+.custom-toggle .custom-control-input:checked ~ .custom-control-label::after {
+transform: translateX(16px); /* Adjust translation distance to match new width */
+}
+
+.history{
+  font-weight: 800;
+  font-size: 10px;
+  padding-left: 10px;
+  font-family: 'poppins',sans-serif;
+}
+
+.unity-game-box .canvas .unity {
+  width: 100%;
+  background-color: var(--white-color);
+}
+
+#unityCanvas{
+margin-top: 5px;
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+
+}
+
+.btn-secondary{
+background-color: black !important;
+border: none;
+}
+.auto-bet-container {
+padding: 2px;
+border-radius: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+white-space: inherit;
+}
+.auto-bet-container span {
+white-space: nowrap;  /* Prevents the text from wrapping */
+margin-right: 5px;  /* Space between text and the next element */
+}
+.auto-bet-button {
+background-color: #000;
+color: white;
+border: none;
+/* padding: 5px 15px; */
+border-radius: 5px;
+font-family: 'poppins',sans-serif;
+font-weight:800;
+font-size: 14px;
+height: 30px;
+margin-right: 5px;
+}
+span{
+font-size: 12px !important;
+}
+.toggle-switch {
+position: relative;
+width: 40px;
+height: 20px;
+background-color: #555;
+border-radius: 50px;
+margin-left: 5px;
+
+cursor: pointer;
+}
+.toggle-switch:before {
+position: absolute;
+content: "";
+width: 20px;
+height: 18px;
+left: 1px;
+bottom: 1px;
+background-color: white;
+border-radius: 50%;
+transition: 0.4s;
+}
+.toggle-switch.active:before {
+transform: translateX(26px);
+}
+.betting-container {
+  border-radius: 0.5rem;
+  background-color: #1B1C1D;
+  margin-bottom: 10px;
+  .input-group .btn-outline-secondary, .btn-group .btn-secondary {
+    background-color: #444;
+    border-color: #555;
+    color: white;
+  }
+  .btn-success {
+    background-color: #28a745;
+  }
+  .custom-switch {
+    .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+  }
+  .custom-control-label::before {
+    background-color: #ccc;
+  }
+}
+.toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.toggle-button-container {
+  display: flex;
+  background-color: #333;
+  border-radius: 20px;
+  padding: 2px;
+  width: 150px;
+  height: 30px; 
+  button {
+    flex: 1;
+    border: none;
+    font-family: 'poppins';
+    background-color: transparent;
+    color: white;
+    padding: 5px 15px;
+    font-size: 10px;
+    outline: none;
+  }
+  
+  .active {
+    background-color: #555;
+    border-radius: 20px;
+  }
+}
+.toggle-button-container:hover{
+  background-color:none;
+}
+.form-control{
+  background-color: black;
+  color: white;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  font-family: 'poppins';
+
+}
+
+
+
+
+.input-group .btn-secondary, .input-group .form-control {
+border-radius: 0; /* Remove border radius */
+border-color: #000; /* Black border color */
+}
+
+.input-group .form-control {
+min-width: 60px; /* Ensure the input doesn't become too narrow */
+}
+
+.input-group>.btn-secondary:not(:last-child), 
+.input-group>.form-control:not(:last-child) {
+border-right: none; /* Remove the right border of elements except the last one */
+}
+
+.input-group .btn {
+background-color: #000; /* Match background color with your design */
+color: #fff; /* White text color */
+}
+
+.input-group .btn:focus {
+box-shadow: none; /* Remove focus shadow to maintain flat design */
+}
+.input-group-text{
+  background-color: black;
+  color: white;
+  border: none;
+
+
+}
+.input-group>.btn-secondary:first-child {
+border-top-left-radius: .25rem; /* Rounded top-left corner */
+border-bottom-left-radius: .25rem; /* Rounded bottom-left corner */
+}
+
+.input-group>.btn-secondary:last-child {
+border-top-right-radius: .25rem; /* Rounded top-right corner */
+border-bottom-right-radius: .25rem; /* Rounded bottom-right corner */
+}
+
+.bet-number{
+  width: 70px;
+  font-size: 10px;
+  background-color:#444;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.auto{
+  border-top: 1px solid black;
+  
+}
+
+.auto-play{
+  margin-top: 4px;
+  height: 70px;
+  width: 100%;
+  font-size: 18px;
+}
+.isSuccess{
+background-color: #20A600 !important;
+margin-top: 4px;
+height: 70px;
+width: 100%;
+font-size: 18px;
+}
+.autoplay-container {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.autoplay-button {
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: 'poppins';
+  cursor: pointer;
+}
+.disabled {
+  pointer-events: none; /* Disable pointer events */
+  opacity: 0.5; /* Optionally reduce opacity to visually indicate disabled state */
+}
+
+.auto-cash-out {
+  display: flex;
+  align-items: center;
+}
+.auto-cash-out span{
+  font-size: 14px;
+  font-family: 'poppins';
+  font-weight: 800;
+  margin-right: 2px;
+}
+.auto-cash-out-input{
+  margin-top: 0;
+  width: 80px;
+  height: 25px;
+  margin-left: 5px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 22px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Optionally, disable the default styling */
+input[type="number"] {
+-moz-appearance: textfield; /* Firefox */
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.cashout-input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-left: 2px solid white;
+  padding: 5px 10px;
+  width: 40px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.cashout-input:focus {
+  outline: none;
+  background-color: #555;
+}
+
+.card-header .card-title{
+height: 40px;
+width: 100%;
+border-radius: 10px;
+font-family: 'poppins',sans-serif;
+font-weight: 800;
+color: white;
+padding: 10px;
+margin: 0;
+}
+.card-body{
+width: 100%;
+padding: 10px;
+}
+
+
+.card-header{
+background-color:  #36363A;
+display: flex;
+}
+.card-header img{
+width: 40px;
+height: 40px;
+}
+.card{
+margin-top: 30px;
+border: none;
+}
+.form-switch{
+display: flex;
+align-items: center;  /* Centers items vertically */
+justify-content: space-between; /* Positions the label on the left and checkbox on the right */
+width: 100%; /* Ensures the switch takes full width of its container */
+padding-left: 1px;
+}
+
+.list-group-item{
+background-color: #101112;
+border: 2px solid #1B1C1D;
+color: white;
+font-family: "poppins";
+border: 1px solid black;
+
+}
+
+.menus-card{
+margin-bottom: 10px;
+height: 55vh;
+}
+.form-check-label{
+display: flex;
+align-items: center; /* Aligns the icon and text vertically in the center */
+color: white;
+font-family: 'poppins';
+}
+.bi {
+margin-right: 5px; /* Adds some space between the icon and the text */
+}
+.form-check-input {
+margin-left: auto; /* Pushes the checkbox to the far right */
+cursor: pointer; /* Indicates it's clickable */
+}
+.form-check-input:checked {
+background-color: #198754; /* Bootstrap green color for consistency */
+}
+.list-group-item{
+color: white;
+font-family: 'poppins';
+}
+
+@media (min-width: 1200px) {
+#unityCanvas{
+  margin-top: 5px;
+    width: 100%;
+    height: 57vh;
+    border-radius: 10px;
+
+}
+
+.menus-card{
+  display: none;
+}
+}
+
+
+
+  @media (min-width: 1500px) {
+    #unityCanvas{
+      margin-top: 5px;
+        width: 100%;
+        height: 57vh;
+        border-radius: 10px;
+    
+    }
+
+  }
+
+    @media (min-width: 2000px) {
+      #unityCanvas{
+        margin-top: 5px;
+          width: 100%;
+          height: 57vh;
+          border-radius: 10px;
+      
+      }
+    }
+
+    @media (min-width: 2500px) {
+      #unityCanvas{
+        margin-top: 5px;
+          width: 100%;
+          height: 57vh;
+          border-radius: 10px;
+      
+      }
+    }

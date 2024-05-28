@@ -1,0 +1,11 @@
+<div *ngIf="betHistories">
+    <div *ngFor="let history of betHistories; let i = index" class="tr" id="placedBet-win">
+      <div class="td username">
+        <img src="assets/gameUser.png" alt="loading">
+        {{ history?.Name.slice(0, 3) + '***' + history?.Name.slice(3, 5) }}
+      </div>
+      <div class="td">{{ history?.BetAmount }}</div>
+      <div class="td">{{ history?.WinAmount.toFixed(2) }}</div>
+    </div>
+  </div>
+  

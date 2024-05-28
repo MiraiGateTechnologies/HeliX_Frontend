@@ -1,0 +1,242 @@
+<div class="container-fluid">
+  <div class="row" style="height: 100vh;">
+    <div class="col-md-8 col-sm-12">
+      <app-heliex-header></app-heliex-header>
+      <!-- Plane Crash-History -->
+      <div class="container-fluid">
+        <div class="game-history-header">
+          <div class='histories' id='history-box'>
+            <div *ngFor="let bet of planCrashHistories; let index = index"
+                 [ngStyle]="{'color': getColor(bet)}"
+                 class='history'>
+              {{ bet.toFixed(2)}}x,
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+
+      <!-- Bet Placed -->
+      <div class="col-md-12 col-sm-12">
+        <!-- Heliex Game -->
+        <!-- <div class="unity-game-box">
+          <div className="canvas">
+            <canvas class='unity' id="unityCanvas" #unityCanvas ></canvas>
+          </div>
+        </div> -->
+        <!--  -->
+        <canvas class='unity img-fluid' id="unityCanvas" style=" background: #231F20"></canvas>
+      </div>
+      <div class="menus-card" *ngIf="showXYZ ==false">
+        <div class="menus" >
+          <div class="card">
+            <div class="card-header">
+              <img src="assets/Photos/HelixPhotos/Ellipse5.png">
+              <h5 class="card-title">Faizan998</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check form-switch" >
+                  <label class="form-check-label" for="soundToggle"><i class="bi bi-volume-up"></i>Sound</label>
+                  <input class="form-check-input" type="checkbox" id="soundToggle" checked>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="musicToggle"><i class="bi bi-music-note-beamed"></i>Music</label>
+                  <input class="form-check-input" type="checkbox" id="musicToggle" checked>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="animationToggle"> Animation</label>
+                  <input class="form-check-input" type="checkbox" id="animationToggle" checked>
+                </div>
+              </li>
+              <li class="list-group-item"> Back to Game</li>
+              <li class="list-group-item"> Back to Lobby</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+        <div class="row">
+          <div class="col-md-6 col-sm-12" [ngClass]="{'disabled': !betAllowed}">
+            <div class="betting-container bg-dark text-white p-3">
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="auto-bet-container">
+                    <button class="auto-bet-button">X2</button>
+                    <span>AUTO BET</span>
+                    <div class="custom-control custom-toggle" (click)="firstBetToggleAutoBet($event)">
+                      <input type="checkbox" class="custom-control-input" [(ngModel)]="firstAutoBetToggle">
+                      <label class="custom-control-label"></label>
+                    </div>
+                  </div>
+                  <div class="container-fluid p-0" style="margin-top: 5px;">
+                    <div class="row mb-2">
+
+                      <div class="col d-flex" style="padding: 4px;">
+                        <div class="input-group ">
+                          <button class="btn btn-secondary" type="button" (click)="onDecreaseFirstAutoBetNumber()">-
+                          </button>
+                          <input type="number" class="form-control text-center" [(ngModel)]="firstAmount">
+                          <button class="btn btn-secondary" type="button" (click)="onPlusFirstBetAutoBetNumber()">+
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-2 reduced-gap">
+                      <div class="col-6">
+                        <button class="btn btn-secondary w-100 btn-sm" (click)="updateValue(20)">20.00</button>
+                      </div>
+                      <div class="col-6">
+                        <button class="btn btn-secondary w-100 btn-sm" (click)="updateValue(50)">50.00</button>
+                      </div>
+                    </div>
+                    <div class="row mb-2 reduced-gap">
+                      <div class="col-6">
+                        <button class="btn btn-secondary w-100 btn-sm" (click)="updateValue(100)">100.00</button>
+                      </div>
+                      <div class="col-6">
+                        <button class="btn btn-secondary w-100 btn-sm" (click)="updateValue(100)">ALL</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="auto-bet-container">
+                    <span>AUTO COLLECT</span>
+                    <div class="custom-control custom-toggle" (click)="autoCollectFirst($event)">
+                      <input type="checkbox" class="custom-control-input" [(ngModel)]="autoCollectFirstToggle">
+                      <label class="custom-control-label"></label>
+                    </div>
+                  </div>
+                  <div class="container-fluid p-0" style="margin-top: 5px;">
+                    <div class="row mb-2">
+                      <div class="col d-flex" style="padding-top: 4px;">
+                        <div class="input-group {{autoCollectFirstToggle ? 'disabled' : ''}}">
+                          <button class="btn btn-secondary" (click)="onDecreaseFirstAutoCollectBetNumber()">-</button>
+                          <input type="number" class="form-control text-center multiplier-input"
+                                 [(ngModel)]="_collectionValueFirst" aria-label="Username">
+                          <button class="btn btn-secondary" (click)="onPlusFirstBetAutoCollectBetNumber()">+</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <button *ngIf="firstBetAction==BetAction.READY" (click)="firstBetPlace()"
+                            class="btn btn-success isSuccess auto-play">BET {{ firstAmount }} USD
+                    </button>
+                    <button *ngIf="firstBetAction==BetAction.CANCEL" (click)="firstBetCancel()"
+                            class="btn btn-danger auto-play">Cancel
+                    </button>
+                    <button *ngIf="firstBetAction==BetAction.ACCEPT" class="btn btn-success auto-play disabled">
+                      Bet Accept
+                    </button>
+                    <button *ngIf="firstBetAction==BetAction.COLLECT" (click)="betCollect(BetType.FIRST)"
+                            class="btn btn-warning auto-play">
+                      Win {{ firstCollectAmt.toFixed(2) }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="betting-container bg-dark text-white p-3">
+              <div class="bet">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="auto-bet-container">
+                      <button class="auto-bet-button btn-sm">X2</button>
+                      <span>AUTO BET</span>
+                      <div class="custom-control custom-toggle" (click)="secondBetToggleAutoBet($event)">
+                        <input type="checkbox" class="custom-control-input" [(ngModel)]="secondAutoBetToggle">
+                        <label class="custom-control-label"></label>
+                      </div>
+                      <!-- <div class="toggle-switch" [class.active]="isActive" (click)="toggleAutoBet()"></div> -->
+                    </div>
+
+                    <div class="container-fluid p-0" style="margin-top: 5px;">
+                      <div class="row mb-2">
+                        <div class="col d-flex" style="padding: 4px;">
+                          <div class="input-group">
+                            <button class="btn btn-secondary " (click)="onDecreaseSecondAutoBetNumber()">-</button>
+                            <input type="number" class="form-control" [(ngModel)]="secondAmount" aria-label="Username"
+                                   aria-describedby="basic-addon1">
+                            <button class="btn btn-secondary" (click)="onPlusSecondBetAutoBetNumber()">+</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2 reduced-gap">
+                        <div class="col-6">
+                          <button class="btn btn-secondary w-100 btn-sm" (click)="updateValueSecond(20)">20.00</button>
+                        </div>
+                        <div class="col-6">
+                          <button class="btn btn-secondary w-100 btn-sm" (click)="updateValueSecond(50)">50.00</button>
+                        </div>
+                      </div>
+                      <div class="row mb-2 reduced-gap">
+                        <div class="col-6">
+                          <button class="btn btn-secondary w-100 btn-sm" (click)="updateValueSecond(100)">100.00
+                          </button>
+                        </div>
+                        <div class="col-6">
+                          <button class="btn btn-secondary w-100 btn-sm" (click)="updateValueSecond(100)">ALL</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-6">
+                    <div class="auto-bet-container">
+                      <span>AUTO COLLECT</span>
+                      <div class="custom-control custom-toggle" (click)="autoCollectSecond($event)">
+                        <input type="checkbox" class="custom-control-input" [(ngModel)]="autoCollectSecondToggle">
+                        <label class="custom-control-label"></label>
+                      </div>
+                    </div>
+                    <div class="container-fluid p-0" style="margin-top: 5px;">
+                      <div class="row mb-2">
+                        <div class="col d-flex" style="padding-top: 4px;">
+                          <div class="input-group  {{autoCollectSecondToggle ? 'disabled' : ''}}">
+                            <button class="btn btn-secondary" (click)="onDecreaseSecondAutoCollectBetNumber()">-
+                            </button>
+                            <input type="number" class="form-control text-center" [(ngModel)]="_collectionValueSecond"
+                                   aria-label="Username">
+                            <button class="btn btn-secondary " (click)="onPlusSecondBetAutoCollectBetNumber()">+
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <button *ngIf="secondBetAction==BetAction.READY" (click)="secondBetPlace()"
+                              class="btn btn-success isSuccess auto-play">BET {{ secondAmount }} USD
+                      </button>
+                      <button *ngIf="secondBetAction==BetAction.CANCEL" (click)="secondBetCancel()"
+                              class="btn btn-danger auto-play">Cancel
+                      </button>
+                      <button *ngIf="secondBetAction==BetAction.ACCEPT" class="btn btn-success auto-play disabled">
+                        Bet Accept
+                      </button>
+                      <button *ngIf="secondBetAction==BetAction.COLLECT" (click)="betCollect(BetType.SECOND)"
+                              class="btn btn-warning auto-play">
+                        Win {{ secondCollectAmt.toFixed(2) }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!--  -->
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <app-heliex-all-bets [hideandShowProfile]="showXYZ"></app-heliex-all-bets>
+    </div>
+  </div>
+</div>
+
+

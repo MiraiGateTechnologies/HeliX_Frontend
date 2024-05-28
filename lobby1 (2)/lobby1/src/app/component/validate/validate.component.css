@@ -1,0 +1,35 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000; /* Black background */
+}
+
+#logo-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* White background for logo */
+}
+
+#logo {
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+  animation: fadeIn 3s forwards; /* 2s fade out, starting after 3s */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

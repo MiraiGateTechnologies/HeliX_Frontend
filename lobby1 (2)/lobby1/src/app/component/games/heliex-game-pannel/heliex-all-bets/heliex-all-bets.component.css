@@ -1,0 +1,140 @@
+.tables {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 7px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 10px 
+  }
+  .pagination{
+    margin-top: 10px;
+    color: white;
+  }
+
+  
+  .tables tbody tr td:first-child {
+    border-top-left-radius: 10px; /* Top left corner */
+    border-bottom-left-radius: 10px; /* Bottom left corner */
+  }
+  
+.tables tbody tr td:last-child {
+  border-top-right-radius: 10px; /* Top right corner */
+  border-bottom-right-radius: 10px; /* Bottom right corner */
+}
+  .tables thead tr {
+    background-color: #333; /* Dark background for the header */
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+  .tables thead tr th{
+    font-family: 'poppins';
+    font-size: 12px !important;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    /* background-color: #007bff; */
+  }
+  .tables tbody tr {
+    background-color: black; /* Light background for rows */
+    border-radius: 10% !important; /* Rounded corners for the table rows */
+    color: white;
+
+}
+
+.card-header .card-title{
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+  font-family: 'poppins',sans-serif;
+  font-weight: 800;
+  color: white;
+  padding: 10px;
+  margin: 0;
+}
+.card-body{
+  width: 100%;
+  padding: 10px;
+}
+
+.card-header{
+  background-color:  #36363A;
+  display: flex;
+}
+.card-header img{
+  width: 40px;
+  height: 40px;
+}
+.card{
+  margin-top: 30px;
+  border: none;
+}
+@media only screen and (max-width: 768px) {
+  .menus-card{
+    display: none;
+  }
+ }
+
+.list-group-item{
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "poppins",sans-serif;
+
+}
+.list-group{
+  background-color: yellow;
+}
+.list-group-item{
+  background-color: #101112;
+}
+.form-switch{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.table-row{
+  border-radius: 10%;
+}
+  .tables tbody tr td{
+    font-family: 'poppins';
+    font-size: 10px;
+    text-align: center;
+    padding-top:5px ;
+    padding-bottom:5px ;
+    /* background-color: black; */
+    font-weight: 600;
+
+  }
+  .top-tabs{
+    background-color: #1B1C1D;
+    margin: 0;
+    /* border-radius: 10px; */
+
+    height: 30px;
+    justify-content: center;
+    align-items: center;  
+  }
+
+  .top-tab.active {
+    background-color: #007bff;
+    color: white;
+    font-size: 10px;
+    font-family: 'poppins';
+    font-weight: 400;
+  }
+  .details-details{
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .tob-tab{
+    font-family: 'poppins',sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+  }

@@ -1,0 +1,124 @@
+<!-- <header class='gamespannel-header'>
+    <nav class='gamespannel-nav'>
+      <div class="games-pannel-menus">
+        <div class='logo'>lux<span>casino</span></div>
+        <ul class="menus-list" [ngClass]="activeMenusbar ? 'show-menusbar' : 'hide-menusbar'">
+          <div class="close-menu-icon" (click)="toggleSidebar()"><i class="uil uil-times"></i></div>
+          <li class='menu'><a routerLink="/about-us" class='link'>About Us</a></li>
+          <li class='menu'><a routerLink="/our-license" class='link'>Our License</a></li>
+          <li class='menu'><a routerLink="/our-partners" class='link'>Our Partners</a></li>
+          <li class='menu'><a routerLink="/live-games" class='link'>Live Games</a></li>
+          <li class='games-menu'>
+            <a class='game-link'>Games <i class="uil uil-angle-down"></i></a>
+            <div class="games-menus">
+              <div class="game"><a routerLink="/helix" class='game-link'>Helix <img src="/assets/Photos/NavbarPhotos/helixIcon.png" alt="loading" /></a></div>
+              <div class="game"><a routerLink="/roulette" class='game-link'>Roulette <img src="/assets/Photos/NavbarPhotos/rouletteIcon.png" alt="loading" /></a></div>
+              <div class="game catfish-game-menu"><a routerLink="/catfish" class='game-link'>Catfish<img src="/assets/Photos/NavbarPhotos/catfishIcon.png" alt="loading" /></a></div>
+              <div class="game"><a routerLink="/cricket" class='game-link'>Cricket<img src="/assets/Photos/NavbarPhotos/cricketIcon.png" alt="loading" /></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="user-actions">
+        <div *ngIf="user" class="user-balance-section">
+          <div class="balance-heading">Balance <i class="uil uil-angle-down"></i></div>
+          <div class="balance-value">{{user?.coin}} <i class="uil uil-rupee-sign"></i></div>
+        </div>
+        <div *ngIf="user" class="user-profile">
+          <div class="profile-card-wrapper">
+            <div class="profile-active-status-tick"></div>
+            <div class="profile-avtar">
+              <div class="profile-img" (click)="profileCardActive = !profileCardActive"><i class="uil uil-user"></i></div>
+            </div>
+            <span class="profile-action-icon">
+              <i *ngIf="profileCardActive" class="uil uil-times" (click)="profileCardActive = !profileCardActive"></i>
+              <i *ngIf="!profileCardActive" class="uil uil-ellipsis-v" (click)="profileCardActive = !profileCardActive"></i>
+            </span>
+          </div>
+        </div>
+        <div *ngIf="user" class="deposite-button">
+          <button class='deposit-btn'>Deposit</button>
+        </div>
+      </div>
+      <div class="menu-bar-icon" (click)="activeMenusbar = !activeMenusbar">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header> -->
+
+
+
+
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="navbar">
+        <div class="header-h3">
+            <div class="card-text">
+      </div>
+        </div>
+        <div class="navbar-left">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+              <div class="games-pannel-menus">
+                <div class='logo'>Mirai<span>Games</span></div></div>
+        </div>
+      </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header d-flex justify-content-center align-items-center">
+                <div class="image-container">
+                    <img src="../../assets/latestprofile.jpg" alt="Profile" class="header-image"/>
+                    <p class="image-text">Username</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <img src="../../assets/f.png">
+                        <a class="nav-link" aria-current="page">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/e.png">
+                        <a class="nav-link" href="#">EDIT STACK</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/d.png">
+                        <a class="nav-link" href="#">SPORTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/c.png">
+
+                        <a class="nav-link" href="#">PASSBOOK</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/b.png">
+                        <a class="nav-link" href="#">LEDGER</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/a.png">
+                        <a class="nav-link" href="#">UNSETTLED BETS LIST</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/h.png">
+                        <a class="nav-link" href="#">PASSWORD</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../../assets/g.png">
+                        <a class="nav-link" href="#">RULES</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-sign-out-alt" style="margin-top: 10px; margin-right: 10px;"></i>
+                        <a class="nav-link">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+
+  <app-dashboard></app-dashboard>

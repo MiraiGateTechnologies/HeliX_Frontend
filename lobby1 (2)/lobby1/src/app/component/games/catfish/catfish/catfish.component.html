@@ -1,0 +1,15 @@
+
+
+<div class="loading-container"  *ngIf="loadingProgress<100">
+  <div class="progress-bar">
+    <div class="progress" [style.width.%]="loadingProgress"></div>
+  </div>
+  <div class="loading-number">{{ loadingProgress }}%</div>
+</div>
+
+<canvas
+  class="unity img-fluid"
+  id="unityCanvas"
+  [ngStyle]="{ display: loadingProgress < 100 ? 'none' : 'block' }"
+  style="background: #231F20"
+></canvas>
